@@ -1,7 +1,9 @@
+import CatalogHeader from "@/components/catalog/CatalogHeader";
+
 export default async function Home() {
   return (
     <main>
-      <h1>Hello, world!</h1>
+      <CatalogHeader />
     </main>
   );
 }
