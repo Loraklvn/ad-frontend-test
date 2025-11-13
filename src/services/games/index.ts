@@ -7,7 +7,7 @@ type GetGamesParams = {
   page?: number;
 };
 
-type GetGamesResponse = {
+export type GetGamesResponse = {
   games: Game[];
   availableFilters: string[];
   totalPages: number;
