@@ -1,7 +1,8 @@
 "use client";
 
-import CartHeader from "@/components/cart/CartHeader";
 import CartItems from "@/components/cart/CartItems";
+import CartHeader from "@/components/cart/CartHeader";
+import OrderSummary from "@/components/cart/OrderSummary";
 
 export default function CartPage() {
   return (
@@ -12,6 +13,10 @@ export default function CartPage() {
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-3 pr-10">
             <CartItems />
+          </div>
+
+          <div className="lg:col-span-2 pl-6">
+            <OrderSummary />
           </div>
         </div>
       </div>
