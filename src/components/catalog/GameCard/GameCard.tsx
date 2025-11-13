@@ -28,7 +28,9 @@ const GameCard = ({ game }: GameCardProps) => {
           <p className="text-xl font-bold">${game.price}</p>
         </div>
 
-        <Button variant="secondary">ADD TO CART</Button>
+        <Button variant="secondary" className="w-full">
+          ADD TO CART
+        </Button>
       </div>
     </div>
   );
