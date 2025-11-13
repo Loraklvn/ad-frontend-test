@@ -13,9 +13,11 @@ const CartHeader = (): ReactElement => {
         <span> Back to Catalog</span>
       </Link>
 
-      <div className="mt-8">
-        <h1 className="text-4xl font-bold text-foreground mb-2">Your Cart</h1>
-        <p className="text-2xl">3 items</p>
+      <div className="sm:mt-8 mt-4">
+        <h1 className="sm:text-4xl text-2xl font-bold text-foreground mb-2">
+          Your Cart
+        </h1>
+        <p className="sm:text-2xl text-xl">3 items</p>
       </div>
     </div>
   );

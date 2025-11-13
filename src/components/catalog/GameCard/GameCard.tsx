@@ -9,14 +9,17 @@ type GameCardProps = {
 
 const GameCard = ({ game }: GameCardProps) => {
   return (
-    <div className="bg-white rounded-2xl border-[0.5px] border-[#8F8F8F] p-6 flex flex-col gap-5">
-      <Image
-        src={game.image}
-        alt={game.name}
-        width={332}
-        height={240}
-        className="rounded-t-2xl h-[240px] w-full object-cover"
-      />
+    <div className="bg-white rounded-2xl border-[0.5px] border-border p-6 flex flex-col gap-5">
+      <div className="relative h-[240px] w-full">
+        <Image
+          src={game.image}
+          alt={game.name}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority
+          className="rounded-t-2xl object-cover"
+        />
+      </div>
 
       <div>
         <h3 className="text-[#737373] font-bold">{game.genre.toUpperCase()}</h3>

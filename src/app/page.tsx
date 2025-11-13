@@ -34,13 +34,13 @@ export default function Home() {
         setSelectedGenre={handleSelectGenre}
       />
 
-      <div className="max-w-7xl mx-auto w-full px-4 py-12">
+      <div className="max-w-7xl mx-auto w-full px-4 lg:py-12 py-8">
         <GamesList games={games} loading={isLoading} />
 
         {hasNextPage && (
           <Button
             variant="primary"
-            className="px-8"
+            className="px-8 w-full sm:w-auto"
             onClick={() => fetchNextPage()}
             disabled={isFetchingNextPage}
           >

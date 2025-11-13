@@ -8,24 +8,25 @@ type CartGameCardProps = {
 };
 const CartGameCard = ({ game }: CartGameCardProps): ReactElement => {
   return (
-    <div className="flex gap-6 pb-5 px-4 items-start">
-      <div className="flex-shrink-0  ">
+    <div className="relative flex sm:flex-row flex-col sm:gap-6 gap-2 sm:pb-5 sm:px-4 items-start">
+      <div className="relative sm:w-[256px] w-[92%] h-[156px]   ">
         <Image
           src={game.image}
           alt={game.name}
-          className="w-[256px] h-[156px] object-cover"
-          width={256}
-          height={156}
+          className="object-cover"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority
         />
       </div>
 
-      <div className="flex-1 flex justify-between items-start">
+      <div className="flex-1 w-full flex justify-between items-start">
         <div className="flex flex-col justify-between w-full h-[156px] py-2">
           <div className="flex-1 flex flex-col gap-1.5">
-            <p className="text-secondary font-bold">
-              {game.genre.toUpperCase()}
+            <p className="text-secondary font-bold uppercase sm:text-base text-sm">
+              {game.genre}
             </p>
-            <h3 className="text-xl font-bold text-ellipsis overflow-hidden whitespace-nowrap max-w-[300px]">
+            <h3 className="sm:text-xl text-lg font-bold text-ellipsis overflow-hidden whitespace-nowrap max-w-[300px]">
               {game.name}
             </h3>
             <p className="text-secondary text-ellipsis overflow-hidden whitespace-nowrap max-w-[200px]">
@@ -38,7 +39,7 @@ const CartGameCard = ({ game }: CartGameCardProps): ReactElement => {
       </div>
 
       <button
-        className="text-border hover:text-foreground transition-colors "
+        className="text-border hover:text-foreground transition-colors absolute top-1 right-0"
         aria-label="Remove item"
       >
         <X size={20} />

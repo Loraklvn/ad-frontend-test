@@ -19,7 +19,7 @@ export default function OrderSummary() {
   return (
     <div className="space-y-3">
       <div className="bg-card border border-border rounded-lg px-6 py-8">
-        <h2 className="text-2xl font-bold  mb-2">Order Summary</h2>
+        <h2 className="sm:text-2xl text-xl font-bold  mb-2">Order Summary</h2>
         <p className="text-lg text-primary mb-8">3 items</p>
 
         <div className="space-y-4 mb-6">

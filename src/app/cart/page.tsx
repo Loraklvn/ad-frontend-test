@@ -11,11 +11,11 @@ export default function CartPage() {
         <CartHeader />
 
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-5 gap-8">
-          <div className="lg:col-span-3 pr-10">
+          <div className="lg:col-span-3 md:pr-10">
             <CartItems />
           </div>
 
-          <div className="lg:col-span-2 pl-6">
+          <div className="lg:col-span-2 md:pl-6">
             <OrderSummary />
           </div>
         </div>
