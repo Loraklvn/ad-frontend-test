@@ -1,22 +1,32 @@
 "use client";
 
 import { classNames } from "@/utils";
-import { allGames } from "@/utils/endpoint";
+import { Game } from "@/utils/endpoint";
 import CartGameCard from "../CartGameCard";
 
-const mockCartItems = allGames.slice(0, 3);
+type CartItemsProps = {
+  cartItems: Game[];
+  onRemoveFromCart: (id: string) => void;
+};
 
-export default function CartItems() {
+export default function CartItems({
+  cartItems,
+  onRemoveFromCart,
+}: CartItemsProps) {
   return (
     <div className="space-y-4 ">
-      {mockCartItems.map((item, index) => (
+      {cartItems.map((item, index) => (
         <div
           key={item.id}
           className={classNames(
-            index !== mockCartItems.length - 1 ? "border-b border-border" : ""
+            "border-border",
+            index !== cartItems.length - 1 ? "border-b " : ""
           )}
         >
-          <CartGameCard game={item} />
+          <CartGameCard
+            game={item}
+            onRemoveFromCart={() => onRemoveFromCart(item.id)}
+          />
         </div>
       ))}
     </div>

@@ -2,7 +2,11 @@ import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 import { ReactElement } from "react";
 
-const CartHeader = (): ReactElement => {
+type CartHeaderProps = {
+  totalItems: number;
+};
+
+const CartHeader = ({ totalItems }: CartHeaderProps): ReactElement => {
   return (
     <div>
       <Link
@@ -17,7 +21,7 @@ const CartHeader = (): ReactElement => {
         <h1 className="sm:text-4xl text-2xl font-bold text-foreground mb-2">
           Your Cart
         </h1>
-        <p className="sm:text-2xl text-xl">3 items</p>
+        <p className="sm:text-2xl text-xl">{totalItems} items</p>
       </div>
     </div>
   );

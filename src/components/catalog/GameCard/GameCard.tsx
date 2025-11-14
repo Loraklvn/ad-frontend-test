@@ -5,9 +5,11 @@ import React from "react";
 
 type GameCardProps = {
   game: Game;
+  isItemInCart: boolean;
+  onToggleCart: () => void;
 };
 
-const GameCard = ({ game }: GameCardProps) => {
+const GameCard = ({ game, isItemInCart, onToggleCart }: GameCardProps) => {
   return (
     <div className="bg-white rounded-2xl border-[0.5px] border-border p-6 flex flex-col gap-5">
       <div className="relative h-[240px] w-full">
@@ -31,8 +33,12 @@ const GameCard = ({ game }: GameCardProps) => {
           <p className="text-xl font-bold">${game.price}</p>
         </div>
 
-        <Button variant="secondary" className="w-full">
-          ADD TO CART
+        <Button
+          variant={isItemInCart ? "primary" : "secondary"}
+          className="w-full"
+          onClick={onToggleCart}
+        >
+          {isItemInCart ? "REMOVE FROM CART" : "ADD TO CART"}
         </Button>
       </div>
     </div>

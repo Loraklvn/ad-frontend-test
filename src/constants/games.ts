@@ -1,3 +1,5 @@
+export const SHOPPING_CART_STORAGE_NAME = "shopping-cart";
+
 export const GENRE_OPTIONS = [
   "Action",
   "RPG",

@@ -5,8 +5,12 @@ import { ReactElement } from "react";
 
 type CartGameCardProps = {
   game: Game;
+  onRemoveFromCart: () => void;
 };
-const CartGameCard = ({ game }: CartGameCardProps): ReactElement => {
+const CartGameCard = ({
+  game,
+  onRemoveFromCart,
+}: CartGameCardProps): ReactElement => {
   return (
     <div className="relative flex sm:flex-row flex-col sm:gap-6 gap-2 sm:pb-5 sm:px-4 items-start">
       <div className="relative sm:w-[256px] w-[92%] h-[156px]   ">
@@ -39,8 +43,9 @@ const CartGameCard = ({ game }: CartGameCardProps): ReactElement => {
       </div>
 
       <button
-        className="text-border hover:text-foreground transition-colors absolute top-1 right-0"
+        className="text-border hover:text-foreground transition-colors absolute top-1 right-0 cursor-pointer"
         aria-label="Remove item"
+        onClick={onRemoveFromCart}
       >
         <X size={20} />
       </button>
