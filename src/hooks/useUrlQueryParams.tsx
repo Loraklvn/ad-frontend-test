@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 type UseUrlQueryResult = {
   getParamValue: (key: string) => string | null;
@@ -10,9 +10,10 @@ type UseUrlQueryResult = {
 };
 
 const useUrlQueryParams = (): UseUrlQueryResult => {
-  const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
+  const search = typeof window !== "undefined" ? window.location.search : "";
+  const searchParams = new URLSearchParams(search);
 
   const getParamValue = (key: string): string | null => {
     return searchParams.get(key);
