@@ -75,11 +75,12 @@ describe("GamesList", () => {
     mockIsItemInCart.mockReturnValue(false);
   });
 
-  // Test 1: Renders loading state
-  it("renders loading message when loading is true", () => {
+  // Test 1: Renders loading spinner when loading is true
+  it("renders loading spinner when loading is true", () => {
     render(<GamesList games={[]} loading={true} />);
 
-    expect(screen.getByText("Loading...")).toBeInTheDocument();
+    const loadingState = screen.getByTestId("loading-state");
+    expect(loadingState).toBeInTheDocument();
   });
 
   // Test 2: Renders games list when not loading

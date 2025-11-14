@@ -19,7 +19,18 @@ const GamesList = ({ games, loading }: GamesListProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div
+        className="flex items-center justify-center min-h-[700px]"
+        data-testid="loading-state"
+      >
+        <div className="relative w-16 h-16">
+          <div className="absolute top-0 left-0 w-full h-full border-4 border-gray-200 rounded-full"></div>
+          <div className="absolute top-0 left-0 w-full h-full border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
+        </div>
+      </div>
+    );
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12">
