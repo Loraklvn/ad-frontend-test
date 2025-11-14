@@ -6,8 +6,9 @@ import Button from "@/components/ui/Button";
 import useUrlQueryParams from "@/hooks/useUrlQueryParams";
 import { getGames } from "@/services/games";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { Suspense } from "react";
 
-export default function Home() {
+function Home() {
   const { getParamValue, setParams } = useUrlQueryParams();
   const genre = getParamValue("genre");
 
@@ -51,3 +52,13 @@ export default function Home() {
     </main>
   );
 }
+
+const HomeWithSuspense = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Home />
+    </Suspense>
+  );
+};
+
+export default HomeWithSuspense;
