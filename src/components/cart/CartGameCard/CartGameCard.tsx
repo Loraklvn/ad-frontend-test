@@ -22,6 +22,11 @@ const CartGameCard = ({
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority
         />
+        {game.isNew && (
+          <div className="absolute top-2 left-2 bg-[#E5E5E5] px-2 py-1">
+            <span className="text-black text-xs font-medium">New</span>
+          </div>
+        )}
       </div>
 
       <div className="flex-1 w-full flex justify-between items-start">

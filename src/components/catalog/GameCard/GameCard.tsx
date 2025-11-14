@@ -21,6 +21,11 @@ const GameCard = ({ game, isItemInCart, onToggleCart }: GameCardProps) => {
           priority
           className="rounded-t-2xl object-cover"
         />
+        {game.isNew && (
+          <div className="absolute top-3 left-3 bg-[#E5E5E5] rounded-sm px-3 py-2">
+            <span className="text-black font-medium">New</span>
+          </div>
+        )}
       </div>
 
       <div>

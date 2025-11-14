@@ -194,4 +194,29 @@ describe("CartGameCard", () => {
       "whitespace-nowrap"
     );
   });
+
+  // Test 9: Renders "New" label when game is new
+  it("renders 'New' label when game is new", () => {
+    render(
+      <CartGameCard game={mockGame} onRemoveFromCart={mockOnRemoveFromCart} />
+    );
+
+    const newLabel = screen.getByText("New");
+    expect(newLabel).toBeInTheDocument();
+    expect(newLabel.tagName).toBe("SPAN");
+  });
+
+  // Test 10: Does not render "New" label when game is not new
+  it("does not render 'New' label when game is not new", () => {
+    const notNewGame: Game = {
+      ...mockGame,
+      isNew: false,
+    };
+
+    render(
+      <CartGameCard game={notNewGame} onRemoveFromCart={mockOnRemoveFromCart} />
+    );
+
+    expect(screen.queryByText("New")).not.toBeInTheDocument();
+  });
 });
