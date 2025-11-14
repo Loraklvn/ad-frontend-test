@@ -12,15 +12,21 @@ type UseUrlQueryResult = {
 const useUrlQueryParams = (): UseUrlQueryResult => {
   const router = useRouter();
   const pathname = usePathname();
-  const search = typeof window !== "undefined" ? window.location.search : "";
-  const searchParams = new URLSearchParams(search);
+
+  // Note: This is a workaround to avoid using useSearchParams without Suspense Boundary
+  // which could cause build errors.
+  const getSearchParams = () => {
+    const search = typeof window !== "undefined" ? window.location.search : "";
+    const searchParams = new URLSearchParams(search);
+    return searchParams;
+  };
 
   const getParamValue = (key: string): string | null => {
-    return searchParams.get(key);
+    return getSearchParams().get(key);
   };
 
   const setParams = (paramsToSet: Record<string, string | number | null>) => {
-    const newParams = new URLSearchParams(searchParams.toString());
+    const newParams = new URLSearchParams(getSearchParams().toString());
 
     const paramsToSetEntries = Object.entries(paramsToSet);
 
@@ -38,7 +44,7 @@ const useUrlQueryParams = (): UseUrlQueryResult => {
   };
 
   const getAllParams = (): URLSearchParams => {
-    return new URLSearchParams(searchParams.toString());
+    return new URLSearchParams(getSearchParams().toString());
   };
 
   const removeParam = (key: string) => {
