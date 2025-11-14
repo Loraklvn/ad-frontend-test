@@ -12,6 +12,12 @@ function Home() {
   const { getParamValue, setParams } = useUrlQueryParams();
   const genre = getParamValue("genre");
 
+  {
+    /*
+      NOTE: The API returns a totalPages property that is used to determine if there are more pages to fetch.
+      When using "genre" filter, the API returns a totalPages property that is not correct.
+    */
+  }
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useInfiniteQuery({
       queryKey: ["games", genre],
